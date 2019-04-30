@@ -10,7 +10,7 @@ namespace TropicalSistema.include.model {
      * Modelo de dados de Cliente
      * @author Cauê dos Santos Silva
      */
-    class Cliente {
+    class Cliente : Conexao {
 
         private int codigo;
         private string nome;
