@@ -10,7 +10,7 @@ namespace TropicalSistema.include.model {
      * Modelo de dados da Gerência
      * @author Cauê dos Santos Silva
      */
-    class Gerencia {
+    class Gerencia : Conexao {
 
         private int codigo;
         private string user;
