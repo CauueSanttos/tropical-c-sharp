@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TropicalSistema {
+
     public partial class FrmLogin : Form {
+
         public FrmLogin() {            
             InitializeComponent();
         }
