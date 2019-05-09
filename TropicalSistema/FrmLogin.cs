@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TropicalSistema.include.controller;
 using TropicalSistema.include.model;
 
 namespace TropicalSistema {
@@ -31,16 +32,9 @@ namespace TropicalSistema {
             string sUsuario = inputUsuario.Text;
             string sSenha = inputSenha.Text;
 
-            if ((sUsuario.Length != 0) && (sSenha.Length != 0)) {
-                Gerencia oGerencia = new Gerencia();
-                oGerencia.setUser(sUsuario);
-                oGerencia.setSenha(sSenha);
-                if (oGerencia.validaLoginGerencia()) {
-                    // Redirecionar para o form (oForm.showDialog());
-                    MessageBox.Show("Deu boa");
-                }
-            } else {
-                MessageBox.Show("Por favor, informe todos os campos!!!");
+            ControllerGerencia oController = new ControllerGerencia();
+            if (oController.validaLoginGerencia(sUsuario, sSenha)) {
+                MessageBox.Show("Deu boa");
             }
         }
     }

@@ -74,6 +74,8 @@
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="include\controller\ControllerCliente.cs" />
+    <Compile Include="include\controller\ControllerGerencia.cs" />
     <Compile Include="include\model\Cliente.cs" />
     <Compile Include="include\model\Conexao.cs" />
     <Compile Include="include\model\Gerencia.cs" />
@@ -106,7 +108,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="include\controller\" />
     <Folder Include="include\view\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
