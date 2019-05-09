@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TropicalSistema.include.model {
 
@@ -38,6 +40,42 @@ namespace TropicalSistema.include.model {
 
         public string getSenha() {
             return this.senha;
+        }
+
+        protected override void processaDadosInclusao() {
+            
+        }
+
+        protected override void processaDadosAlteracao() {
+            
+        }
+
+        protected override void processaDadosExclusao() {
+            
+        }
+
+        /***************** MÉTODOS IMPLEMENTADOS *****************/
+
+        public bool validaLoginGerencia() {
+            try {
+                string sSql = @"SELECT *
+                                  FROM public.tbgerencia
+                                 WHERE geruser = @user 
+                                   AND gersenha = @senha";
+
+                NpgsqlCommand oCommand = new NpgsqlCommand();
+                oCommand.Connection = this.getConexao();
+                oCommand.CommandText = sSql;
+                oCommand.Parameters.Add("@user", NpgsqlTypes.NpgsqlDbType.Varchar).Value = this.getUser();
+                oCommand.Parameters.Add("@senha", NpgsqlTypes.NpgsqlDbType.Varchar).Value = this.getSenha();
+
+                NpgsqlDataReader oDataReader = oCommand.ExecuteReader();
+                oDataReader.Read();
+                return oDataReader.HasRows;
+            } catch (NpgsqlException oEx) {
+                Console.WriteLine("Erro de SQL: " + oEx.Message);
+            }
+            return false;
         }
     }
 }

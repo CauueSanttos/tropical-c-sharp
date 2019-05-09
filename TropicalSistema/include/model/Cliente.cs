@@ -58,5 +58,16 @@ namespace TropicalSistema.include.model {
             return this.tipo;
         }
 
+        protected override void processaDadosInclusao() {
+            
+        }
+
+        protected override void processaDadosAlteracao() {
+            
+        }
+
+        protected override void processaDadosExclusao() {
+            
+        }
     }
 }
