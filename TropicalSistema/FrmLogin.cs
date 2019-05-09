@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TropicalSistema.include.controller;
 using TropicalSistema.include.model;
+using TropicalSistema.include.view;
 
 namespace TropicalSistema {
 
@@ -34,7 +35,13 @@ namespace TropicalSistema {
 
             ControllerGerencia oController = new ControllerGerencia();
             if (oController.validaLoginGerencia(sUsuario, sSenha)) {
-                MessageBox.Show("Deu boa");
+                FrmBuscaUsuario oForm = new FrmBuscaUsuario();
+                this.Hide();
+                oForm.ShowDialog();
+            } else {
+                MessageBox.Show("Dados não encontrados no sistema", "ALERTA");
+                inputUsuario.Clear();
+                inputSenha.Clear();
             }
         }
     }
