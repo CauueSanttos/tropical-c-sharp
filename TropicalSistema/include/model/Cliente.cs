@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Npgsql;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -68,6 +70,36 @@ namespace TropicalSistema.include.model {
 
         protected override void processaDadosExclusao() {
             
+        }
+
+        /************ MÉTODOS IMPLEMENTADOS ***************/
+
+        public ArrayList buscaUsuario() {
+            ArrayList aUsuarios = new ArrayList();
+
+            try {
+                string sSql = @"SELECT * FROM tbcliente WHERE clinome ILIKE '%' || @nome || '%'";
+
+                NpgsqlCommand oCommand = new NpgsqlCommand();
+                oCommand.Connection = this.getConexao();
+                oCommand.CommandText = sSql;
+                oCommand.Parameters.Add("@nome", NpgsqlTypes.NpgsqlDbType.Varchar).Value = this.getNome();
+
+                NpgsqlDataReader oData = oCommand.ExecuteReader();
+
+                while (oData.Read()) {
+                    Cliente oCliente = new Cliente();
+                    oCliente.setCodigo((int)oData["clicodigo"]);
+                    oCliente.setNome((string)oData["clinome"]);
+                    oCliente.setEmpresa((string)oData["cliempresa"]);
+
+                    aUsuarios.Add(oCliente);
+                }
+            } catch (NpgsqlException oEx) {
+                Console.WriteLine("Erro de SQL: " + oEx.Message);
+            }
+
+            return aUsuarios;
         }
     }
 }

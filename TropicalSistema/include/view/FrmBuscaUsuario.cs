@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,7 +26,10 @@ namespace TropicalSistema.include.view {
             string sNomeCliente = inputBusca.Text;
 
             ControllerCliente oController = new ControllerCliente();
-            oController.buscaCliente(sNomeCliente);
+            ArrayList aUsuarios = oController.buscaCliente(sNomeCliente);
+
+            gridUsuarios.Visible = true;
+            gridUsuarios.DataSource = aUsuarios;
         }
     }
 }
