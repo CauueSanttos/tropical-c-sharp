@@ -63,13 +63,11 @@ namespace TropicalSistema.include.model {
                                  WHERE geruser = @user 
                                    AND gersenha = @senha";
 
-                NpgsqlCommand oCommand = new NpgsqlCommand();
-                oCommand.Connection = this.getConexao();
-                oCommand.CommandText = sSql;
-                oCommand.Parameters.Add("@user", NpgsqlTypes.NpgsqlDbType.Varchar).Value = this.getUser();
-                oCommand.Parameters.Add("@senha", NpgsqlTypes.NpgsqlDbType.Varchar).Value = this.getSenha();
+                this.insertParameters(createArray("@user", this.getUser(), "1"));
+                this.insertParameters(createArray("@senha", this.getSenha(), "1"));
+                this.executeCommand(sSql);
 
-                NpgsqlDataReader oDataReader = oCommand.ExecuteReader();
+                NpgsqlDataReader oDataReader = this.getDataReader();
                 oDataReader.Read();
                 return oDataReader.HasRows;
             } catch (NpgsqlException oEx) {

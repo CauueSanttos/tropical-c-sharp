@@ -27,11 +27,11 @@
             this.inputBusca = new System.Windows.Forms.TextBox();
             this.buttonBusca = new System.Windows.Forms.Button();
             this.gridUsuarios = new System.Windows.Forms.DataGridView();
-            this.clicodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clinome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clitelefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cliempresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clitipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,47 +59,47 @@
             // 
             this.gridUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clicodigo,
-            this.clinome,
-            this.clitelefone,
-            this.cliempresa,
-            this.clitipo});
+            this.codigo,
+            this.nome,
+            this.telefone,
+            this.empresa,
+            this.tipo});
             this.gridUsuarios.Location = new System.Drawing.Point(34, 107);
             this.gridUsuarios.Name = "gridUsuarios";
             this.gridUsuarios.Size = new System.Drawing.Size(435, 106);
             this.gridUsuarios.TabIndex = 2;
             this.gridUsuarios.Visible = false;
             // 
-            // clicodigo
+            // codigo
             // 
-            this.clicodigo.DataPropertyName = "clicodigo";
-            this.clicodigo.HeaderText = "Código";
-            this.clicodigo.Name = "clicodigo";
-            this.clicodigo.Visible = false;
+            this.codigo.DataPropertyName = "codigo";
+            this.codigo.HeaderText = "Código";
+            this.codigo.Name = "codigo";
+            this.codigo.Visible = false;
             // 
-            // clinome
+            // nome
             // 
-            this.clinome.DataPropertyName = "clinome";
-            this.clinome.HeaderText = "Nome";
-            this.clinome.Name = "clinome";
+            this.nome.DataPropertyName = "nome";
+            this.nome.HeaderText = "Nome";
+            this.nome.Name = "nome";
             // 
-            // clitelefone
+            // telefone
             // 
-            this.clitelefone.DataPropertyName = "clitelefone";
-            this.clitelefone.HeaderText = "Telefone";
-            this.clitelefone.Name = "clitelefone";
+            this.telefone.DataPropertyName = "telefone";
+            this.telefone.HeaderText = "Telefone";
+            this.telefone.Name = "telefone";
             // 
-            // cliempresa
+            // empresa
             // 
-            this.cliempresa.DataPropertyName = "cliempresa";
-            this.cliempresa.HeaderText = "Empresa";
-            this.cliempresa.Name = "cliempresa";
+            this.empresa.DataPropertyName = "empresa";
+            this.empresa.HeaderText = "Empresa";
+            this.empresa.Name = "empresa";
             // 
-            // clitipo
+            // tipo
             // 
-            this.clitipo.DataPropertyName = "clitipo";
-            this.clitipo.HeaderText = "Tipo";
-            this.clitipo.Name = "clitipo";
+            this.tipo.DataPropertyName = "tipo";
+            this.tipo.HeaderText = "Tipo";
+            this.tipo.Name = "tipo";
             // 
             // FrmBuscaUsuario
             // 
@@ -124,10 +124,10 @@
         private System.Windows.Forms.TextBox inputBusca;
         private System.Windows.Forms.Button buttonBusca;
         private System.Windows.Forms.DataGridView gridUsuarios;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clicodigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clinome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clitelefone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cliempresa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clitipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn empresa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
     }
 }

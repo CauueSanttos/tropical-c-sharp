@@ -78,20 +78,20 @@ namespace TropicalSistema.include.model {
             ArrayList aUsuarios = new ArrayList();
 
             try {
-                string sSql = @"SELECT * FROM tbcliente WHERE clinome ILIKE '%' || @nome || '%'";
+                string sSql = @"SELECT * 
+                                  FROM tbcliente 
+                                 WHERE clinome ILIKE '%' || @nome || '%'";
 
-                NpgsqlCommand oCommand = new NpgsqlCommand();
-                oCommand.Connection = this.getConexao();
-                oCommand.CommandText = sSql;
-                oCommand.Parameters.Add("@nome", NpgsqlTypes.NpgsqlDbType.Varchar).Value = this.getNome();
+                this.insertParameters(createArray("@nome", this.getNome(), "1"));
+                this.executeCommand(sSql);
 
-                NpgsqlDataReader oData = oCommand.ExecuteReader();
-
+                NpgsqlDataReader oData = this.getDataReader();
                 while (oData.Read()) {
                     Cliente oCliente = new Cliente();
                     oCliente.setCodigo((int)oData["clicodigo"]);
                     oCliente.setNome((string)oData["clinome"]);
                     oCliente.setEmpresa((string)oData["cliempresa"]);
+                    oCliente.setTelefone((string)oData["clitelefone"]);
 
                     aUsuarios.Add(oCliente);
                 }
