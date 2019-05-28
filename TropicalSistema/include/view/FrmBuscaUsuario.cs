@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TropicalSistema.include.controller;
+using TropicalSistema.include.model;
 
 namespace TropicalSistema.include.view {
 
@@ -17,19 +18,30 @@ namespace TropicalSistema.include.view {
         public FrmBuscaUsuario() {
             InitializeComponent();
         }
-            
+
         private void buttonBusca_Click(object sender, EventArgs e) {
             this.buscaCliente();
         }
 
         private void buscaCliente() {
+            this.gridUsuarios.Rows.Clear();
             string sNomeCliente = inputBusca.Text;
 
             ControllerCliente oController = new ControllerCliente();
-            ArrayList aUsuarios = oController.buscaCliente(sNomeCliente);
+            List<Cliente> aUsuarios = oController.buscaCliente(sNomeCliente);
+
+            foreach (var oCliente in aUsuarios) {
+                string sTipoCliente = (oCliente.getTipo() == 0 ? "Normal" : "Mensalista");
+                gridUsuarios.Rows.Add(oCliente.getCodigo(), oCliente.getNome(), oCliente.getTelefone(), oCliente.getEmpresa(), sTipoCliente);
+            }
 
             gridUsuarios.Visible = true;
-            gridUsuarios.DataSource = aUsuarios;
+        }
+
+        private void inputBusca_KeyPress(object sender, KeyPressEventArgs e) {
+            if ((Keys)e.KeyChar == Keys.Enter) {
+                this.buscaCliente();
+            }
         }
     }
 }

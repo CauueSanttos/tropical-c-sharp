@@ -38,16 +38,17 @@
             // inputBusca
             // 
             this.inputBusca.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.inputBusca.Location = new System.Drawing.Point(34, 56);
+            this.inputBusca.Location = new System.Drawing.Point(34, 29);
             this.inputBusca.Name = "inputBusca";
             this.inputBusca.Size = new System.Drawing.Size(435, 20);
             this.inputBusca.TabIndex = 0;
+            this.inputBusca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputBusca_KeyPress);
             // 
             // buttonBusca
             // 
             this.buttonBusca.BackgroundImage = global::TropicalSistema.Properties.Resources.search;
             this.buttonBusca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonBusca.Location = new System.Drawing.Point(475, 44);
+            this.buttonBusca.Location = new System.Drawing.Point(484, 16);
             this.buttonBusca.Name = "buttonBusca";
             this.buttonBusca.Size = new System.Drawing.Size(43, 43);
             this.buttonBusca.TabIndex = 1;
@@ -57,6 +58,7 @@
             // 
             // gridUsuarios
             // 
+            this.gridUsuarios.AllowUserToAddRows = false;
             this.gridUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codigo,
@@ -66,7 +68,7 @@
             this.tipo});
             this.gridUsuarios.Location = new System.Drawing.Point(34, 107);
             this.gridUsuarios.Name = "gridUsuarios";
-            this.gridUsuarios.Size = new System.Drawing.Size(435, 106);
+            this.gridUsuarios.Size = new System.Drawing.Size(493, 106);
             this.gridUsuarios.TabIndex = 2;
             this.gridUsuarios.Visible = false;
             // 
@@ -82,12 +84,14 @@
             this.nome.DataPropertyName = "nome";
             this.nome.HeaderText = "Nome";
             this.nome.Name = "nome";
+            this.nome.Width = 130;
             // 
             // telefone
             // 
             this.telefone.DataPropertyName = "telefone";
             this.telefone.HeaderText = "Telefone";
             this.telefone.Name = "telefone";
+            this.telefone.Width = 120;
             // 
             // empresa
             // 
@@ -105,7 +109,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(538, 225);
+            this.ClientSize = new System.Drawing.Size(552, 225);
             this.Controls.Add(this.gridUsuarios);
             this.Controls.Add(this.buttonBusca);
             this.Controls.Add(this.inputBusca);

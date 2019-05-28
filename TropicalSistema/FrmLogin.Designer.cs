@@ -46,6 +46,7 @@
             this.inputSenha.PasswordChar = '*';
             this.inputSenha.Size = new System.Drawing.Size(171, 20);
             this.inputSenha.TabIndex = 1;
+            this.inputSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputSenha_KeyPress);
             // 
             // label1
             // 

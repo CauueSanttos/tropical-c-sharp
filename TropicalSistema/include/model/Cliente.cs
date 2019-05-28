@@ -72,12 +72,13 @@ namespace TropicalSistema.include.model {
             
         }
 
-        /************ MÉTODOS IMPLEMENTADOS ***************/
+        /************ METODOS IMPLEMENTADOS ***************/
 
-        public ArrayList buscaUsuario() {
-            ArrayList aUsuarios = new ArrayList();
+        public List<Cliente> buscaUsuario() {
+            List<Cliente> aUsuarios = new List<Cliente>();
 
-            try {
+            try
+            {
                 string sSql = @"SELECT * 
                                   FROM tbcliente 
                                  WHERE clinome ILIKE '%' || @nome || '%'";
@@ -86,7 +87,8 @@ namespace TropicalSistema.include.model {
                 this.executeCommand(sSql);
 
                 NpgsqlDataReader oData = this.getDataReader();
-                while (oData.Read()) {
+                while (oData.Read())
+                {
                     Cliente oCliente = new Cliente();
                     oCliente.setCodigo((int)oData["clicodigo"]);
                     oCliente.setNome((string)oData["clinome"]);
@@ -95,7 +97,9 @@ namespace TropicalSistema.include.model {
 
                     aUsuarios.Add(oCliente);
                 }
-            } catch (NpgsqlException oEx) {
+            }
+            catch (NpgsqlException oEx)
+            {
                 Console.WriteLine("Erro de SQL: " + oEx.Message);
             }
 
@@ -103,3 +107,6 @@ namespace TropicalSistema.include.model {
         }
     }
 }
+
+
+

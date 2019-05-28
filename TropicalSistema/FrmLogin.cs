@@ -44,5 +44,11 @@ namespace TropicalSistema {
                 inputSenha.Clear();
             }
         }
+
+        private void inputSenha_KeyPress(object sender, KeyPressEventArgs e) {
+            if ((Keys)e.KeyChar == Keys.Enter) {
+                this.validaLoginUsuario();
+            }
+        }
     }
 }

@@ -15,7 +15,8 @@ namespace TropicalSistema.include.controller {
      */
     class ControllerCliente {
 
-        public ArrayList buscaCliente(string sNomeCliente) {
+        public List<Cliente> buscaCliente(string sNomeCliente)
+        {
             Cliente oCliente = new Cliente();
             oCliente.setNome(sNomeCliente);
 
