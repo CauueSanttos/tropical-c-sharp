@@ -27,6 +27,8 @@
             this.inputBusca = new System.Windows.Forms.TextBox();
             this.buttonBusca = new System.Windows.Forms.Button();
             this.gridUsuarios = new System.Windows.Forms.DataGridView();
+            this.btnInserir = new System.Windows.Forms.Button();
+            this.btnGerenciar = new System.Windows.Forms.Button();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +61,7 @@
             // gridUsuarios
             // 
             this.gridUsuarios.AllowUserToAddRows = false;
+            this.gridUsuarios.AllowUserToResizeRows = false;
             this.gridUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codigo,
@@ -67,16 +70,42 @@
             this.empresa,
             this.tipo});
             this.gridUsuarios.Location = new System.Drawing.Point(34, 107);
+            this.gridUsuarios.MultiSelect = false;
             this.gridUsuarios.Name = "gridUsuarios";
+            this.gridUsuarios.ReadOnly = true;
+            this.gridUsuarios.RowHeadersVisible = false;
+            this.gridUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridUsuarios.Size = new System.Drawing.Size(493, 106);
             this.gridUsuarios.TabIndex = 2;
             this.gridUsuarios.Visible = false;
+            this.gridUsuarios.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridUsuarios_RowEnter);
+            // 
+            // btnInserir
+            // 
+            this.btnInserir.Location = new System.Drawing.Point(34, 66);
+            this.btnInserir.Name = "btnInserir";
+            this.btnInserir.Size = new System.Drawing.Size(92, 23);
+            this.btnInserir.TabIndex = 3;
+            this.btnInserir.Text = "Inserir Cliente";
+            this.btnInserir.UseVisualStyleBackColor = true;
+            // 
+            // btnGerenciar
+            // 
+            this.btnGerenciar.Enabled = false;
+            this.btnGerenciar.Location = new System.Drawing.Point(132, 66);
+            this.btnGerenciar.Name = "btnGerenciar";
+            this.btnGerenciar.Size = new System.Drawing.Size(75, 23);
+            this.btnGerenciar.TabIndex = 4;
+            this.btnGerenciar.Text = "Gerenciar";
+            this.btnGerenciar.UseVisualStyleBackColor = true;
+            this.btnGerenciar.Click += new System.EventHandler(this.btnGerenciar_Click);
             // 
             // codigo
             // 
             this.codigo.DataPropertyName = "codigo";
             this.codigo.HeaderText = "Código";
             this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
             this.codigo.Visible = false;
             // 
             // nome
@@ -84,13 +113,15 @@
             this.nome.DataPropertyName = "nome";
             this.nome.HeaderText = "Nome";
             this.nome.Name = "nome";
-            this.nome.Width = 130;
+            this.nome.ReadOnly = true;
+            this.nome.Width = 170;
             // 
             // telefone
             // 
             this.telefone.DataPropertyName = "telefone";
             this.telefone.HeaderText = "Telefone";
             this.telefone.Name = "telefone";
+            this.telefone.ReadOnly = true;
             this.telefone.Width = 120;
             // 
             // empresa
@@ -98,18 +129,22 @@
             this.empresa.DataPropertyName = "empresa";
             this.empresa.HeaderText = "Empresa";
             this.empresa.Name = "empresa";
+            this.empresa.ReadOnly = true;
             // 
             // tipo
             // 
             this.tipo.DataPropertyName = "tipo";
             this.tipo.HeaderText = "Tipo";
             this.tipo.Name = "tipo";
+            this.tipo.ReadOnly = true;
             // 
             // FrmBuscaUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(552, 225);
+            this.Controls.Add(this.btnGerenciar);
+            this.Controls.Add(this.btnInserir);
             this.Controls.Add(this.gridUsuarios);
             this.Controls.Add(this.buttonBusca);
             this.Controls.Add(this.inputBusca);
@@ -128,6 +163,8 @@
         private System.Windows.Forms.TextBox inputBusca;
         private System.Windows.Forms.Button buttonBusca;
         private System.Windows.Forms.DataGridView gridUsuarios;
+        private System.Windows.Forms.Button btnInserir;
+        private System.Windows.Forms.Button btnGerenciar;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefone;

@@ -43,5 +43,19 @@ namespace TropicalSistema.include.view {
                 this.buscaCliente();
             }
         }
+
+        private void gridUsuarios_RowEnter(object sender, DataGridViewCellEventArgs e) {
+            this.btnGerenciar.Enabled = true;
+        }
+
+        private void btnGerenciar_Click(object sender, EventArgs e) {
+            this.loadDadosCliente();
+        }
+
+        private void loadDadosCliente() {
+            var oCell = this.gridUsuarios.CurrentRow;
+            ControllerGerenciar oControllerGerenciar = new ControllerGerenciar();
+            oControllerGerenciar.openForm(oCell.Cells["codigo"].Value.ToString());
+        }
     }
 }

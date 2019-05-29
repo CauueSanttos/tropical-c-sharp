@@ -30,19 +30,19 @@ namespace TropicalSistema {
         }
 
         private void validaLoginUsuario() {
-            string sUsuario = inputUsuario.Text;
-            string sSenha = inputSenha.Text;
+            //string sUsuario = inputUsuario.Text;
+            //string sSenha = inputSenha.Text;
 
-            ControllerGerencia oController = new ControllerGerencia();
-            if (oController.validaLoginGerencia(sUsuario, sSenha)) {
-                FrmBuscaUsuario oForm = new FrmBuscaUsuario();
-                this.Hide();
-                oForm.ShowDialog();
-            } else {
-                MessageBox.Show("Dados não encontrados no sistema", "ALERTA");
-                inputUsuario.Clear();
-                inputSenha.Clear();
-            }
+            //ControllerGerencia oController = new ControllerGerencia();
+            //if (oController.validaLoginGerencia(sUsuario, sSenha)) {
+            FrmBuscaUsuario oForm = new FrmBuscaUsuario();
+            this.Hide();
+            oForm.ShowDialog();
+            //} else {
+            //    MessageBox.Show("Dados não encontrados no sistema", "ALERTA");
+            //    inputUsuario.Clear();
+            //    inputSenha.Clear();
+            //}
         }
 
         private void inputSenha_KeyPress(object sender, KeyPressEventArgs e) {
