@@ -14,11 +14,11 @@ namespace TropicalSistema.include.model {
      */
     class Cliente : Conexao {
 
-        private int codigo;
-        private string nome;
-        private string telefone;
-        private string empresa;
-        private int tipo;
+        public int codigo { get; set; }
+        public string nome { get; set; }
+        public string telefone { get; set; }
+        public string empresa { get; set; }
+        public string tipo { get; set; }
 
         public void setCodigo(int iCodigo) {
             this.codigo = iCodigo;
@@ -52,11 +52,11 @@ namespace TropicalSistema.include.model {
             return this.empresa;
         }
 
-        public void setTipo(int iTipo) {
+        public void setTipo(string iTipo) {
             this.tipo = iTipo;
         }
 
-        public int getTipo() {
+        public string getTipo() {
             return this.tipo;
         }
 
@@ -94,6 +94,7 @@ namespace TropicalSistema.include.model {
                     oCliente.setNome((string)oData["clinome"]);
                     oCliente.setEmpresa((string)oData["cliempresa"]);
                     oCliente.setTelefone((string)oData["clitelefone"]);
+                    oCliente.setTipo((oData["clitipo"].ToString() == "0") ? "NORMAL" : "MENSALISTA");
 
                     aUsuarios.Add(oCliente);
                 }

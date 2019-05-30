@@ -24,16 +24,13 @@ namespace TropicalSistema.include.view {
         }
 
         private void buscaCliente() {
-            this.gridUsuarios.Rows.Clear();
             string sNomeCliente = inputBusca.Text;
 
             ControllerCliente oController = new ControllerCliente();
             List<Cliente> aUsuarios = oController.buscaCliente(sNomeCliente);
 
-            foreach (var oCliente in aUsuarios) {
-                string sTipoCliente = (oCliente.getTipo() == 0 ? "Normal" : "Mensalista");
-                gridUsuarios.Rows.Add(oCliente.getCodigo(), oCliente.getNome(), oCliente.getTelefone(), oCliente.getEmpresa(), sTipoCliente);
-            }
+            gridUsuarios.AutoGenerateColumns = false;
+            gridUsuarios.DataSource = aUsuarios;
 
             gridUsuarios.Visible = true;
         }
@@ -49,13 +46,23 @@ namespace TropicalSistema.include.view {
         }
 
         private void btnGerenciar_Click(object sender, EventArgs e) {
-            this.loadDadosCliente();
+            this.criaTelaGerenciar();
         }
 
-        private void loadDadosCliente() {
+        private void criaTelaGerenciar() {
             var oCell = this.gridUsuarios.CurrentRow;
-            ControllerGerenciar oControllerGerenciar = new ControllerGerenciar();
-            oControllerGerenciar.openForm(oCell.Cells["codigo"].Value.ToString());
+
+            ControllerCliente oControllerCliente = new ControllerCliente();
+            oControllerCliente.criaTelaGerenciar(oCell.Cells["codigo"].Value.ToString());
+        }
+
+        private void btnInserir_Click(object sender, EventArgs e) {
+            this.criaTelaInclusao();
+        }
+
+        private void criaTelaInclusao() {
+            ControllerCliente oControllerCliente = new ControllerCliente();
+            oControllerCliente.criaTelaIncluir();
         }
     }
 }

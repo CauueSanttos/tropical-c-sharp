@@ -12,14 +12,13 @@ namespace TropicalSistema.include.view {
 
     public partial class FrmGerenciar : Form {
 
-
         public FrmGerenciar(string iCodigoCliente) {
             InitializeComponent();
             this.loadDadosCliente(iCodigoCliente);
         }
 
         private void loadDadosCliente(string iCodigoCliente) {
-            MessageBox.Show(iCodigoCliente);
+
         }
     }
 }

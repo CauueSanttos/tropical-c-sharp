@@ -25,15 +25,15 @@
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBuscaUsuario));
             this.inputBusca = new System.Windows.Forms.TextBox();
-            this.buttonBusca = new System.Windows.Forms.Button();
             this.gridUsuarios = new System.Windows.Forms.DataGridView();
-            this.btnInserir = new System.Windows.Forms.Button();
-            this.btnGerenciar = new System.Windows.Forms.Button();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnInserir = new System.Windows.Forms.Button();
+            this.btnGerenciar = new System.Windows.Forms.Button();
+            this.buttonBusca = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,18 +45,6 @@
             this.inputBusca.Size = new System.Drawing.Size(435, 20);
             this.inputBusca.TabIndex = 0;
             this.inputBusca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputBusca_KeyPress);
-            // 
-            // buttonBusca
-            // 
-            this.buttonBusca.BackgroundImage = global::TropicalSistema.Properties.Resources.search;
-            this.buttonBusca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonBusca.Location = new System.Drawing.Point(484, 16);
-            this.buttonBusca.Name = "buttonBusca";
-            this.buttonBusca.Size = new System.Drawing.Size(43, 43);
-            this.buttonBusca.TabIndex = 1;
-            this.buttonBusca.Text = " ";
-            this.buttonBusca.UseVisualStyleBackColor = true;
-            this.buttonBusca.Click += new System.EventHandler(this.buttonBusca_Click);
             // 
             // gridUsuarios
             // 
@@ -79,26 +67,6 @@
             this.gridUsuarios.TabIndex = 2;
             this.gridUsuarios.Visible = false;
             this.gridUsuarios.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridUsuarios_RowEnter);
-            // 
-            // btnInserir
-            // 
-            this.btnInserir.Location = new System.Drawing.Point(34, 66);
-            this.btnInserir.Name = "btnInserir";
-            this.btnInserir.Size = new System.Drawing.Size(92, 23);
-            this.btnInserir.TabIndex = 3;
-            this.btnInserir.Text = "Inserir Cliente";
-            this.btnInserir.UseVisualStyleBackColor = true;
-            // 
-            // btnGerenciar
-            // 
-            this.btnGerenciar.Enabled = false;
-            this.btnGerenciar.Location = new System.Drawing.Point(132, 66);
-            this.btnGerenciar.Name = "btnGerenciar";
-            this.btnGerenciar.Size = new System.Drawing.Size(75, 23);
-            this.btnGerenciar.TabIndex = 4;
-            this.btnGerenciar.Text = "Gerenciar";
-            this.btnGerenciar.UseVisualStyleBackColor = true;
-            this.btnGerenciar.Click += new System.EventHandler(this.btnGerenciar_Click);
             // 
             // codigo
             // 
@@ -137,6 +105,39 @@
             this.tipo.HeaderText = "Tipo";
             this.tipo.Name = "tipo";
             this.tipo.ReadOnly = true;
+            // 
+            // btnInserir
+            // 
+            this.btnInserir.Location = new System.Drawing.Point(34, 66);
+            this.btnInserir.Name = "btnInserir";
+            this.btnInserir.Size = new System.Drawing.Size(92, 23);
+            this.btnInserir.TabIndex = 3;
+            this.btnInserir.Text = "Inserir Cliente";
+            this.btnInserir.UseVisualStyleBackColor = true;
+            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
+            // 
+            // btnGerenciar
+            // 
+            this.btnGerenciar.Enabled = false;
+            this.btnGerenciar.Location = new System.Drawing.Point(132, 66);
+            this.btnGerenciar.Name = "btnGerenciar";
+            this.btnGerenciar.Size = new System.Drawing.Size(75, 23);
+            this.btnGerenciar.TabIndex = 4;
+            this.btnGerenciar.Text = "Gerenciar";
+            this.btnGerenciar.UseVisualStyleBackColor = true;
+            this.btnGerenciar.Click += new System.EventHandler(this.btnGerenciar_Click);
+            // 
+            // buttonBusca
+            // 
+            this.buttonBusca.BackgroundImage = global::TropicalSistema.Properties.Resources.search;
+            this.buttonBusca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonBusca.Location = new System.Drawing.Point(484, 16);
+            this.buttonBusca.Name = "buttonBusca";
+            this.buttonBusca.Size = new System.Drawing.Size(43, 43);
+            this.buttonBusca.TabIndex = 1;
+            this.buttonBusca.Text = " ";
+            this.buttonBusca.UseVisualStyleBackColor = true;
+            this.buttonBusca.Click += new System.EventHandler(this.buttonBusca_Click);
             // 
             // FrmBuscaUsuario
             // 
