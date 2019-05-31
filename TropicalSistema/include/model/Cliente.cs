@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TropicalSistema.include.model {
 
@@ -57,11 +58,25 @@ namespace TropicalSistema.include.model {
         }
 
         public string getTipo() {
-            return this.tipo;
+            return this.tipo == "NORMAL" ? "1" : "2";
         }
 
+
         protected override void processaDadosInclusao() {
-            
+            try {
+                string sSql = @"INSERT 
+                                  INTO tbcliente(clinome, clitelefone, cliempresa, clitipo)
+                                VALUES (' ' || @nome || ', ' || @telefone || ' , ' || @empresa || ', ' || @tipo || ' ')";
+
+                this.insertParameters(createArray("@nome", this.getNome(), "1"));
+                this.insertParameters(createArray("@telefone", this.getTelefone(), "1"));
+                this.insertParameters(createArray("@telefone", this.getEmpresa(), "1"));
+                this.insertParameters(createArray("@tipo", this.getTipo(), "1"));
+
+                this.executeCommand(sSql);
+            } catch (NpgsqlException oEx) {
+                throw new Exception(oEx.Message);
+            }
         }
 
         protected override void processaDadosAlteracao() {
@@ -87,14 +102,13 @@ namespace TropicalSistema.include.model {
                 this.executeCommand(sSql);
 
                 NpgsqlDataReader oData = this.getDataReader();
-                while (oData.Read())
-                {
+                while (oData.Read()){
                     Cliente oCliente = new Cliente();
                     oCliente.setCodigo((int)oData["clicodigo"]);
                     oCliente.setNome((string)oData["clinome"]);
                     oCliente.setEmpresa((string)oData["cliempresa"]);
                     oCliente.setTelefone((string)oData["clitelefone"]);
-                    oCliente.setTipo((oData["clitipo"].ToString() == "0") ? "NORMAL" : "MENSALISTA");
+                    oCliente.setTipo(Convert.ToInt32(oData["clitipo"]) == 1 ? "NORMAL" : "MENSALISTA");
 
                     aUsuarios.Add(oCliente);
                 }

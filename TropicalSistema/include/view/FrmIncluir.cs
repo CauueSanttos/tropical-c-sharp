@@ -60,7 +60,9 @@ namespace TropicalSistema.include.view {
                 aCampos.Add("Tipo");
             }
 
-            MessageBox.Show("Preencha o(s) campo(s): [" + String.Join(", ", aCampos) +  "]", "OBRIGATÓRIO");
+            if (aCampos.Count() > 0) {
+                MessageBox.Show("Preencha o(s) campo(s): [" + String.Join(", ", aCampos) +  "]", "OBRIGATÓRIO");
+            }
         }
     }
 }

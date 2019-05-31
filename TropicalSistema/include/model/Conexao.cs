@@ -122,6 +122,23 @@ namespace TropicalSistema.include.model {
         protected abstract void processaDadosInclusao();
         protected abstract void processaDadosAlteracao();
         protected abstract void processaDadosExclusao();
+
+        public void processaDados(int iTipoProcesso) {
+            switch (iTipoProcesso) {
+                case 1:
+                    this.processaDadosInclusao();
+                    break;
+                case 2:
+                    this.processaDadosAlteracao();
+                    break;
+                case 3:
+                    this.processaDadosExclusao();
+                    break;
+                default:
+                    this.processaDadosInclusao();
+                    break;
+            }
+        }
     }
 
 }

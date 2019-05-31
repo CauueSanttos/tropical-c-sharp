@@ -24,7 +24,15 @@ namespace TropicalSistema.include.controller {
         }
 
         public void processaDadosInclusao(string sNomeCliente, string sEmpresa, string sTelefone, int iTipo) {
+            Cliente oModelCliente = new Cliente();
 
+            oModelCliente.setNome(sNomeCliente);
+            oModelCliente.setEmpresa(sEmpresa);
+            oModelCliente.setTelefone(sTelefone);
+            oModelCliente.setTipo(iTipo == 1 ? "NORMAL" : "MENSALISTA");
+            oModelCliente.processaDados(1);
+
+            MessageBox.Show("O Cliente foi incluído com sucesso");
         }
 
         public void criaTelaIncluir() {
