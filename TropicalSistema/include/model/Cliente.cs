@@ -64,14 +64,9 @@ namespace TropicalSistema.include.model {
 
         protected override void processaDadosInclusao() {
             try {
-                string sSql = @"INSERT 
+                string sSql = $@"INSERT 
                                   INTO tbcliente(clinome, clitelefone, cliempresa, clitipo)
-                                VALUES (' ' || @nome || ', ' || @telefone || ' , ' || @empresa || ', ' || @tipo || ' ')";
-
-                this.insertParameters(createArray("@nome", this.getNome(), "1"));
-                this.insertParameters(createArray("@telefone", this.getTelefone(), "1"));
-                this.insertParameters(createArray("@telefone", this.getEmpresa(), "1"));
-                this.insertParameters(createArray("@tipo", this.getTipo(), "1"));
+                                VALUES ('{this.getNome()}', '{this.getTelefone()}', '{this.getEmpresa()}',  '{this.getTipo()}')";
 
                 this.executeCommand(sSql);
             } catch (NpgsqlException oEx) {
