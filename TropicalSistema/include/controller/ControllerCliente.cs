@@ -43,7 +43,6 @@ namespace TropicalSistema.include.controller {
         public void criaTelaGerenciar(string sCodigoCliente) {
             FrmGerenciar oForm = new FrmGerenciar(sCodigoCliente);
             oForm.ShowDialog();
-            MessageBox.Show(sCodigoCliente);
         }
 
     }

@@ -79,6 +79,13 @@
     <Compile Include="include\model\Cliente.cs" />
     <Compile Include="include\model\Conexao.cs" />
     <Compile Include="include\model\Gerencia.cs" />
+    <Compile Include="include\model\HistoricoCliente.cs" />
+    <Compile Include="include\view\FrmAlterar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="include\view\FrmAlterar.Designer.cs">
+      <DependentUpon>FrmAlterar.cs</DependentUpon>
+    </Compile>
     <Compile Include="include\view\FrmBuscaUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +108,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="include\view\FrmAlterar.resx">
+      <DependentUpon>FrmAlterar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="include\view\FrmBuscaUsuario.resx">
       <DependentUpon>FrmBuscaUsuario.cs</DependentUpon>

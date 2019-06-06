@@ -49,7 +49,7 @@ namespace TropicalSistema.include.model {
 
             if(this.getConexao() == null) {
                 try {
-                    oConexao = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = unidavi; Database = tropical");
+                    oConexao = new NpgsqlConnection("Server = localhost; Port = 5432; User Id = postgres; Password = postgres; Database = tropical");
                     oConexao.Open();
                     this.setConexao(oConexao);
                     this.setCommand(this.getConexao());

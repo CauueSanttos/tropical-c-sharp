@@ -39,6 +39,7 @@ namespace TropicalSistema.include.view {
         private void processaDadosUsuario() {
             ControllerCliente oControllerCliente = new ControllerCliente();
             oControllerCliente.processaDadosInclusao(this.inputNome.Text, this.inputEmpresa.Text, this.inputTelefone.Text, this.selectTipo.SelectedIndex);
+            this.Close();
         }
 
         private void validaDadosFormulario() {

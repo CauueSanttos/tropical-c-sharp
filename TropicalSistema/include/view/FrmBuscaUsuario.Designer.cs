@@ -34,6 +34,8 @@
             this.btnInserir = new System.Windows.Forms.Button();
             this.btnGerenciar = new System.Windows.Forms.Button();
             this.buttonBusca = new System.Windows.Forms.Button();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,7 +121,7 @@
             // btnGerenciar
             // 
             this.btnGerenciar.Enabled = false;
-            this.btnGerenciar.Location = new System.Drawing.Point(132, 66);
+            this.btnGerenciar.Location = new System.Drawing.Point(294, 66);
             this.btnGerenciar.Name = "btnGerenciar";
             this.btnGerenciar.Size = new System.Drawing.Size(75, 23);
             this.btnGerenciar.TabIndex = 4;
@@ -139,11 +141,33 @@
             this.buttonBusca.UseVisualStyleBackColor = true;
             this.buttonBusca.Click += new System.EventHandler(this.buttonBusca_Click);
             // 
+            // btnAlterar
+            // 
+            this.btnAlterar.Enabled = false;
+            this.btnAlterar.Location = new System.Drawing.Point(132, 66);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(75, 23);
+            this.btnAlterar.TabIndex = 5;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = true;
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Enabled = false;
+            this.btnExcluir.Location = new System.Drawing.Point(213, 66);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.TabIndex = 6;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            // 
             // FrmBuscaUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(552, 225);
+            this.Controls.Add(this.btnExcluir);
+            this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnGerenciar);
             this.Controls.Add(this.btnInserir);
             this.Controls.Add(this.gridUsuarios);
@@ -171,5 +195,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn telefone;
         private System.Windows.Forms.DataGridViewTextBoxColumn empresa;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
+        private System.Windows.Forms.Button btnAlterar;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }

@@ -65,8 +65,8 @@ namespace TropicalSistema.include.model {
         protected override void processaDadosInclusao() {
             try {
                 string sSql = $@"INSERT 
-                                  INTO tbcliente(clinome, clitelefone, cliempresa, clitipo)
-                                VALUES ('{this.getNome()}', '{this.getTelefone()}', '{this.getEmpresa()}',  '{this.getTipo()}')";
+                                   INTO tbcliente(clinome, clitelefone, cliempresa, clitipo)
+                                 VALUES ('{this.getNome()}', '{this.getTelefone()}', '{this.getEmpresa()}',  '{this.getTipo()}')";
 
                 this.executeCommand(sSql);
             } catch (NpgsqlException oEx) {
@@ -75,6 +75,13 @@ namespace TropicalSistema.include.model {
         }
 
         protected override void processaDadosAlteracao() {
+            try {
+                string sSql = $@"UPDATE tbcliente
+	                                SET clinome='{this.getNome()}', clitelefone='{this.getTelefone()}', cliempresa='{this.getEmpresa()}', clitipo='{this.getTipo}'?
+	                              WHERE clicodigo = {this.getCodigo()}";
+            } catch (NpgsqlException oEx) {
+
+            }
             
         }
 
@@ -89,6 +96,8 @@ namespace TropicalSistema.include.model {
 
             try
             {
+                string teste = @"SELECT * FROM tbcliente WHERE clinome = @nome and clitipo = @tipo";
+
                 string sSql = @"SELECT * 
                                   FROM tbcliente 
                                  WHERE clinome ILIKE '%' || @nome || '%'";
@@ -114,6 +123,28 @@ namespace TropicalSistema.include.model {
             }
 
             return aUsuarios;
+        }
+
+        public Cliente getClienteGerenciar() {
+            try {
+                string sSql = $@"SELECT * 
+                                   FROM tbcliente 
+                                  WHERE clicodigo = {this.getCodigo()}";
+
+                this.executeCommand(sSql);
+
+                NpgsqlDataReader oData = this.getDataReader();
+                while (oData.Read()) {
+                    this.setNome((string)oData["clinome"]);
+                    this.setEmpresa((string)oData["cliempresa"]);
+                    this.setTelefone((string)oData["cliempresa"]);
+                    this.setTipo((string)(oData["clitipo"] == "1" ? "NORMAL" : "MENSALISTA"));
+                }
+            } catch (NpgsqlException oEx) {
+                Console.WriteLine("Erro de SQL: " + oEx.Message);
+            }
+
+            return this;
         }
     }
 }
